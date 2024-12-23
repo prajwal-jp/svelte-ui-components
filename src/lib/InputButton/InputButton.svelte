@@ -8,6 +8,8 @@
   const dispatch = createEventDispatcher();
   export let properties: InputButtonProperties = defaultInputButtonProperties;
 
+  let inputRef: Input;
+
   $: state = 'InProgress' as ValidationState;
 
   $: {
@@ -50,6 +52,14 @@
   function onFocusOut(event: CustomEvent) {
     dispatch('focusout', event);
   }
+
+  function onInputClick(event: CustomEvent) {
+    dispatch('inputClick', event);
+  }
+
+  export function focus() {
+    inputRef?.focus();
+  }
 </script>
 
 {#if properties.inputProperties.label && properties.inputProperties.label !== ''}
@@ -75,7 +85,9 @@
         on:input={(event) => dispatch('input', event)}
         on:focusout={onFocusOut}
         on:focus
+        on:click={onInputClick}
         --input-width="auto"
+        bind:this={inputRef}
       />
     </div>
     {#if properties.rightButtonProperties != null}
@@ -112,6 +124,7 @@
     --input-border: none;
     --input-focus-border: none;
     border: var(--input-button-container-border);
+    background: var(--input-button-container-background);
   }
 
   .input-button {
@@ -120,6 +133,7 @@
     border-radius: var(--input-button-radius, 4px);
     border: var(--input-button-border);
     box-shadow: var(--input-button-box-shadow, 0px 1px 8px #2f537733);
+    background: var(--input-button-background);
   }
   .input-button-container:focus-within {
     border: var(--input-button-focus-border);
