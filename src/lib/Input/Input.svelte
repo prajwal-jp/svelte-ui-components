@@ -32,6 +32,15 @@
     }
   }
 
+  export function focus() {
+    try {
+      inputElement?.focus();
+      inputElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (error) {
+      console.error('Error focusing or scrolling inputElement:', error);
+    }
+  }
+
   $: showErrorMessage = state === 'Invalid';
 
   function onInput(event: Event) {
@@ -131,6 +140,10 @@
     dispatch('focusout', event);
   }
 
+  function onClick(event: MouseEvent) {
+    dispatch('click', event);
+  }
+
   onMount(() => {
     if (properties.focus) {
       inputElement.focus();
@@ -162,6 +175,7 @@
       on:focusout={onFocusOut}
       on:input={onInput}
       on:paste={onPaste}
+      on:click={onClick}
       class="
         {properties.actionInput ? 'action-input' : ''}
       "
@@ -185,6 +199,7 @@
       on:focusout={onFocusOut}
       on:input={onInput}
       on:paste={onPaste}
+      on:click={onClick}
       data-pw={properties.dataPw}
       class="
       {properties.actionInput ? 'action-input' : ''}
