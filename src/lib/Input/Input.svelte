@@ -261,25 +261,31 @@
     display: flex;
     flex-direction: column;
     margin: var(--input-container-margin);
+    padding: var(--input-container-padding);
   }
 
   .label {
     font-weight: var(--input-label-msg-text-weight, 400);
     font-size: var(--input-label-msg-text-size, 12px);
     color: var(--input-label-msg-text-color, #637c95);
-    margin-bottom: 6px;
+    margin: var(--input-label-msg-margin, 0px 0px 6px 0px);
+    padding: var(--input-label-msg-padding);
   }
 
   .error-message {
     font-weight: var(--input-error-msg-text-weight, 400);
     font-size: var(--input-error-msg-text-size, 12px);
     color: var(--input-error-msg-text-color, #fa1405);
+    margin: var(--input-error-msg-margin);
+    padding: var(--input-error-msg-padding);
   }
 
   .info-message {
     font-weight: var(--input-info-msg-text-weight, 400);
     font-size: var(--input-info-msg-text-size, 12px);
     color: var(--input-info-msg-text-color, #fa1405);
+    margin: var(--input-info-msg-margin);
+    padding: var(--input-info-msg-padding);
   }
 
   ::placeholder {

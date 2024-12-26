@@ -125,6 +125,7 @@
     --input-focus-border: none;
     border: var(--input-button-container-border);
     background: var(--input-button-container-background);
+    padding: var(--input-button-container-padding);
   }
 
   .input-button {
@@ -170,16 +171,16 @@
 
   .error-message {
     font-weight: var(--input-error-msg-text-weight, 400);
-    font-size: var(--input-error-msg-text-size, 14px);
+    font-size: var(--input-error-msg-text-size, 12px);
     color: var(--input-error-msg-text-color, #fa1405);
-    margin-top: 12px;
+    margin: var(--input-btn-error-msg-margin, 12px 0px 0px 0px);
   }
 
   .info-message {
     font-weight: var(--input-info-msg-text-weight, 400);
     font-size: var(--input-info-msg-text-size, 12px);
     color: var(--input-info-msg-text-color, #fa1405);
-    margin-top: 12px;
+    margin: var(--input-btn-info-msg-margin, 12px 0px 0px 0px);
   }
 
   .left-button {
